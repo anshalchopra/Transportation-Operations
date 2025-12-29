@@ -1,0 +1,254 @@
+# 1. Business Process Discovery & Framing
+
+## 1.1 Purpose
+
+The purpose of this initiative is to examine how MSMEs in Canada currently procure and manage freight shipments. Today, freight movement is largely coordinated through manual, broker-led processes in which pricing, routing, and carrier selection are handled by intermediaries. While this model reduces operational involvement for MSMEs, it limits their direct exposure to available shipping options and underlying network structures.
+
+Freight decisions are typically made on a per-shipment basis, and the shipment lifecycle concludes at delivery and invoicing, with limited retention of structured data for future planning or analysis. This initiative seeks to understand the implications of this operating model on cost efficiency, routing flexibility, and decision quality across common shipping lanes.
+
+
+## 1.2 Initiative Overview
+
+### 1.2.1 Initiative
+Logistics Systems Improvement
+
+### 1.2.2 Background (Context)
+
+ Micro, Small, and Medium Enterprises (MSMEs) are small manufacturers, importers and distributors, wholesalers, construction and industrial suppliers, and growing e-commerce brands—typically shipping freight between one and fifteen times per week. These businesses rarely have dedicated logistics teams; instead, logistics planning and execution are handled as a secondary responsibility by founders, operations staff, or sales teams. As a result, shipping decisions are often made reactively, with limited time, tooling, or specialized expertise, despite logistics being operationally critical to day-to-day business performance.
+
+#### 1.2.2.1 Associated Steps (MSME)  
+
+![alt text](../resources/Gemini_Generated_Image_2mwcy72mwcy72mwc.png)
+
+
+#### 1.2.2.2 Associated Steps (Broker Side)
+
+![alt text](../resources/Gemini_Generated_Image_3ygy2t3ygy2t3ygy.png)
+
+
+#### 1.2.2.3 Sample Cost Breakdown
+
+
+**Table 1: Direct FTL — Toronto → Vancouver (400 kg)**
+
+
+| Cost Component | Amount (CAD) | Notes |
+|---------------|--------------|------|
+| Carrier base linehaul | 3,100 | Lane-based spot rate |
+| Fuel surcharge | 380 | Diesel indexed |
+| Driver wages & HOS buffer | 420 | Cross-country reset |
+| Insurance & compliance | 140 | Cargo + liability |
+| Detention / contingency buffer | 160 | Waiting risk |
+| **Carrier gross cost** | **4,200** | |
+| Carrier operating margin (~15%) | 630 | Typical FTL margin |
+| **Carrier sell rate** | **4,830** | |
+| Broker / 3PL margin (~18%) | 870 | MSME pricing |
+| **Final cost to MSME** | **5,700 CAD** | |
+---
+
+\
+**Table 2: LTL — Toronto → Calgary (400 kg)**
+| Cost Component | Amount (CAD) | Notes |
+|---------------|--------------|------|
+| Linehaul (weight & class based) | 410 | Shared trailer |
+| Terminal handling (Toronto) | 95 | Pickup + dock |
+| Terminal handling (Calgary) | 85 | Cross-dock |
+| Fuel surcharge | 90 | Indexed |
+| Insurance & liability | 35 | Limited liability |
+| **Carrier gross cost** | **715** | |
+| Carrier margin (~20%) | 145 | LTL economics |
+| **Carrier sell rate** | **860** | |
+| Broker / platform margin (~15%) | 130 | |
+| **Final cost to MSME** | **990 CAD** | |
+---
+\
+**Table 3: LTL — Calgary → Vancouver (400 kg)**
+
+| Cost Component | Amount (CAD) | Notes |
+|---------------|--------------|------|
+| Linehaul | 190 | Short-haul |
+| Terminal handling (Calgary) | 70 | |
+| Terminal handling (Vancouver) | 80 | |
+| Fuel surcharge | 55 | |
+| Insurance & liability | 30 | |
+| **Carrier gross cost** | **425** | |
+| Carrier margin (~22%) | 95 | Regional LTL |
+| **Carrier sell rate** | **520** | |
+| Broker / platform margin (~15%) | 80 | |
+| **Final cost to MSME** | **600 CAD** | |
+---
+\
+**Table 4: Total Cost Comparison — Toronto → Vancouver (400 kg)**
+
+| Option | Total Cost (CAD) | Transit Time |
+|------|------------------|--------------|
+| Direct FTL | **5,700** | 3–4 days |
+| LTL (TO → CGY → VAN) | **1,590** | 7–9 days |
+| **Savings** | **≈ 72%** | +3–5 days |
+---
+
+## 1.3 Business Problem Statement
+
+Freight transportation for MSMEs operates through highly intermediated and fragmented carrier networks, where shipment planning and option discovery are largely delegated to brokers. While brokers simplify execution, MSMEs have limited visibility into the full set of feasible freight options available for a given shipment, including different load configurations, routing structures, and carrier combinations.
+
+Carrier pricing and capacity are typically optimized at the individual lane level rather than at the end-to-end route level. As a result, potentially efficient multi-leg routes—such as combining LTL segments across different carriers—are rarely surfaced or evaluated, even when they offer materially lower costs or acceptable trade-offs in transit time. Unlike airline travel, where fragmented supply is composed into multiple itineraries, freight shipments are usually presented as a single bundled outcome rather than a choice set.
+
+This lack of option discovery also limits operational resilience. Once a shipment is booked, MSMEs have minimal access to pre-identified alternatives in the event of delays, capacity shortages, or equipment failures, forcing reactive decision-making and increasing the cost of disruptions. Collectively, these constraints prevent MSMEs from treating freight as a flexible, optimizable decision problem, and instead make logistics a source of recurring cost uncertainty and operational risk.
+
+### 1.3.1 Current Symptoms
+**Symptom 1:** MSMEs are presented with a single freight option per shipment request
+For a given origin, destination, and shipment profile, MSMEs typically receive one quoted rate with an associated delivery estimate. Alternative configurations—such as different load types, routing paths, or carrier combinations—are not surfaced, even when they may exist within the broader carrier market.
+
+**Symptom 2:** Freight options are constrained to individual carrier networks
+Shipment quotes generally reflect the limitations of a single carrier’s network or a broker’s preferred carrier set. This results in routes being optimized locally rather than across the full set of available carriers, preventing feasible multi-leg or cross-carrier combinations from being evaluated.
+
+**Symptom 3:** Trade-offs between cost, transit time, and reliability are opaque
+MSMEs are unable to explicitly compare trade-offs such as paying less for longer transit times or selecting slightly higher-cost options with lower variability. Decisions are made without visibility into how different choices impact these dimensions.
+
+**Symptom 4:** Routing decisions are not reusable or data-driven
+Each shipment is planned independently, with limited structured retention of prior quotes, routes, or outcomes. As shipment volume grows, historical data is not systematically used to inform future routing or pricing decisions.
+
+**Symptom 5:** Limited contingency options when disruptions occur
+When delays, equipment failures, or capacity shortages arise, MSMEs must rely on ad-hoc rebooking through brokers. Alternative routes or carriers are not pre-identified, increasing disruption costs and operational uncertainty.
+
+**Symptom 6:** Small shipment sizes are disproportionately expensive relative to capacity used
+For sub-truckload shipments, MSMEs frequently pay for capacity far in excess of what they consume or accept suboptimal routing due to lack of visibility into combinable LTL options across carriers.
+
+### 1.3.2 Root Causes
+Most freight carriers operate network models optimized at the lane or terminal level, with pricing and capacity decisions made independently for each segment. Brokers, in turn, are structured to assemble executable shipments rather than explore the combinatorial space of multi-carrier routing options. As a result, optimization occurs locally rather than across the full end-to-end route.
+
+From a broker’s perspective, introducing additional carriers or handoff points increases operational complexity and exception risk without a proportional increase in revenue. This creates a rational preference for simpler, single-carrier routes even when lower-cost alternatives may exist.
+
+Unlike passenger air travel, freight transportation lacks a standardized, real-time connectivity layer across carriers. Pricing, capacity, and service constraints are exposed through heterogeneous and often proprietary interfaces, limiting the feasibility of automated cross-carrier route composition.
+
+Current freight platforms are designed to support transactional execution rather than exploratory decision-making. As a result, feasible alternatives that are not selected during the booking process are neither stored nor evaluated, preventing systematic learning across shipments.
+
+While large shippers mitigate these constraints through contracted networks and dedicated logistics teams, MSMEs rely almost entirely on spot-market interactions, making them more exposed to the structural limitations of existing market mechanisms.
+
+**Evidence (Data / Observations)**
+
+	•	Metrics, reports, complaints, audits, anecdotes
+
+Important Rules:
+	•	No proposed solutions here
+	•	Must describe today, not the desired future
+
+⸻
+
+### Business Objectives (Outcome-Oriented & Measurable)
+
+The initiative will be considered successful if the following objectives are achieved.
+
+Objective	Current Baseline	Target	Measurement Method	Target Date
+				
+				
+
+Notes:
+	•	Objectives must be metric-driven
+	•	Avoid vague goals (“improve”, “optimize”) without numbers
+
+⸻
+
+### Scope Definition (Boundary Setting)
+
+4.1 In Scope
+
+(Explicitly included processes, users, regions, systems)
+	•	
+	•	
+
+4.2 Out of Scope
+
+(Explicit exclusions to prevent scope creep)
+	•	
+	•	
+
+4.3 Scope Constraints
+	•	Time constraints:
+	•	Budget constraints:
+	•	Regulatory constraints:
+	•	Technology constraints:
+
+Rule: If something is not explicitly in scope, assume it is out of scope.
+
+⸻
+
+### Stakeholders & Ownership
+
+5.1 Stakeholder Register
+
+Role	Name / Team	Responsibility	Decision Authority
+Business Owner		Final accountability	Yes / No
+Process Owner		Owns day-to-day process	Yes / No
+Technical Owner		Feasibility & implementation	Yes / No
+Analyst		Analysis & documentation	No
+
+5.2 Escalation Path
+	•	Primary decision-maker:
+	•	Escalation decision-maker:
+
+Rule: One owner per decision. Shared ownership = no ownership.
+
+⸻
+
+### Assumptions
+
+(Beliefs assumed to be true but not yet validated)
+	•	
+	•	
+	•	
+
+Assumptions must be validated or explicitly accepted as risks later.
+
+⸻
+
+### Constraints
+
+(Non-negotiable limits)
+	•	Legal / regulatory:
+	•	Budget:
+	•	Timeline:
+	•	Technology:
+	•	Organizational:
+
+⸻
+
+### Risks & Dependencies
+
+8.1 Risks
+
+Risk Description	Likelihood	Impact	Mitigation Strategy
+			
+			
+
+8.2 Dependencies
+	•	External vendors:
+	•	Internal teams:
+	•	Data availability:
+
+⸻
+
+### High-Level Process Landscape (Optional but Recommended)
+
+A very high-level view of affected processes. No detail.
+
+	•	Process 1:
+	•	Process 2:
+	•	Process 3:
+
+(This sets the stage for Phase 1 & 2, not replaces them.)
+
+⸻
+
+### Success Criteria & Exit Conditions
+
+10.1 Success Criteria
+	•	Objectives approved by business owner
+	•	Scope explicitly agreed and frozen
+	•	Ownership clearly assigned
+	•	Metrics agreed and measurable
+
+10.2 Exit Conditions (Phase 0 Complete When)
+	•	Phase 0 document reviewed and signed off
+	•	No open critical assumptions
+	•	Authorization granted to proceed to Phase 1
