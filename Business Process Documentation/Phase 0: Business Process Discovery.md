@@ -2,9 +2,13 @@
 
 ## 1.1 Purpose
 
-The purpose of this initiative is to examine how MSMEs in Canada currently procure and manage freight shipments. Today, freight movement is largely coordinated through manual, broker-led processes in which pricing, routing, and carrier selection are handled by intermediaries. While this model reduces operational involvement for MSMEs, it limits their direct exposure to available shipping options and underlying network structures.
-
-Freight decisions are typically made on a per-shipment basis, and the shipment lifecycle concludes at delivery and invoicing, with limited retention of structured data for future planning or analysis. This initiative seeks to understand the implications of this operating model on cost efficiency, routing flexibility, and decision quality across common shipping lanes.
+The purpose of this initiative is to identify and articulate the structural limitations in how Canadian MSMEs discover, evaluate, and select freight transportation options, with a specific focus on limited network visibility, constrained route composition, and opaque trade-offs between cost, time, and reliability.
+	
+Today, MSMEs interact with freight markets primarily through broker-mediated, transaction-oriented workflows that expose only a narrow slice of the feasible carrier and routing space for any given shipment. As a result, routing decisions are optimized locally—within individual carrier networks or broker-preferred lanes—rather than across the full end-to-end logistics network. Potentially efficient alternatives, such as multi-leg or cross-carrier LTL combinations, are rarely surfaced, even when they offer materially lower costs or acceptable service trade-offs.
+	
+This initiative seeks to examine how the lack of systematic option discovery, reusable routing intelligence, and structured decision data impacts freight costs, operational resilience, and planning quality for MSMEs. By framing freight not as a single quoted outcome but as a composable decision problem, the goal is to establish a clearer understanding of where current processes suppress choice, prevent learning across shipments, and introduce avoidable cost and risk.
+	
+The findings from this analysis will be used to inform the design of logistics systems that improve network visibility, enable explicit comparison of routing alternatives, and support data-driven freight decision-making appropriate to the scale and constraints of MSMEs.
 
 
 ## 1.2 Initiative Overview
@@ -14,8 +18,9 @@ Logistics Systems Improvement
 
 ### 1.2.2 Background (Context)
 
- Micro, Small, and Medium Enterprises (MSMEs) are small manufacturers, importers and distributors, wholesalers, construction and industrial suppliers, and growing e-commerce brands—typically shipping freight between one and fifteen times per week. These businesses rarely have dedicated logistics teams; instead, logistics planning and execution are handled as a secondary responsibility by founders, operations staff, or sales teams. As a result, shipping decisions are often made reactively, with limited time, tooling, or specialized expertise, despite logistics being operationally critical to day-to-day business performance.
+Micro, Small, and Medium Enterprises (MSMEs) are small manufacturers, importers and distributors, wholesalers, construction and industrial suppliers, and growing e-commerce brands—typically shipping freight between one and fifteen times per week. These businesses rarely have dedicated logistics teams; instead, logistics planning and execution are handled as a secondary responsibility by founders, operations staff, or sales teams. As a result, shipping decisions are often made reactively, with limited time, tooling, or specialized expertise, despite logistics being operationally critical to day-to-day business performance.
 
+The current workflow for frieght orchestration is as follows:
 #### 1.2.2.1 Associated Steps (MSME)  
 
 ![alt text](../resources/Gemini_Generated_Image_2mwcy72mwcy72mwc.png)
@@ -111,8 +116,7 @@ Each shipment is planned independently, with limited structured retention of pri
 **Symptom 5:** Limited contingency options when disruptions occur
 When delays, equipment failures, or capacity shortages arise, MSMEs must rely on ad-hoc rebooking through brokers. Alternative routes or carriers are not pre-identified, increasing disruption costs and operational uncertainty.
 
-**Symptom 6:** Small shipment sizes are disproportionately expensive relative to capacity used
-For sub-truckload shipments, MSMEs frequently pay for capacity far in excess of what they consume or accept suboptimal routing due to lack of visibility into combinable LTL options across carriers.
+**Symptom 6:** Small shipment sizes are disproportionately expensive relative to capacity used for sub-truckload shipments, MSMEs frequently pay for capacity far in excess of what they consume or accept suboptimal routing due to lack of visibility into combinable LTL options across carriers.
 
 ### 1.3.2 Root Causes
 Most freight carriers operate network models optimized at the lane or terminal level, with pricing and capacity decisions made independently for each segment. Brokers, in turn, are structured to assemble executable shipments rather than explore the combinatorial space of multi-carrier routing options. As a result, optimization occurs locally rather than across the full end-to-end route.
@@ -125,15 +129,71 @@ Current freight platforms are designed to support transactional execution rather
 
 While large shippers mitigate these constraints through contracted networks and dedicated logistics teams, MSMEs rely almost entirely on spot-market interactions, making them more exposed to the structural limitations of existing market mechanisms.
 
-**Evidence (Data / Observations)**
+### 1.3.3 Evidence (Data / Observations)
 
-	•	Metrics, reports, complaints, audits, anecdotes
+**Empirical Evidence: Structural Inefficiencies in North American Freight (US + Canada)**
 
-Important Rules:
-	•	No proposed solutions here
-	•	Must describe today, not the desired future
+---
 
-⸻
+\
+**Table 5: Truck Capacity Underutilization (System-Level)**
+
+| Metric | Value | What It Shows | Source |
+|------|------|--------------|--------|
+| Truckloads with unused capacity (2023) | 43% | Load aggregation failure is common | Flock Freight |
+| Truckloads with unused capacity (2024) | 58% | Underutilization is increasing | Flock Freight |
+| Average unused trailer space | 29–34 linear feet | Equivalent to ~1 empty truck per 3 shipments | Flock Freight |
+| Truck miles driven empty (average) | ~15–18% | Persistent unused network capacity | ATRI |
+| Trucks fully utilized | ~55–60% | Majority of trucks operate below capacity | Transport Canada |
+
+---
+
+\
+**Table 6: Network Inefficiencies and Empty Backhauls**
+
+| Metric | Value | What It Shows | Source |
+|------|------|--------------|--------|
+| Empty backhaul prevalence | ~25–30% | Poor coordination of return loads | ATRI |
+| Freight optimization focus | Lane-level | End-to-end routing not optimized | McKinsey (qualitative) |
+| Cross-carrier route composition | Limited | Networks are fragmented | McKinsey (qualitative) |
+
+---
+
+\
+**Table 7: Cost Disadvantage for MSMEs**
+
+| Metric | Value | What It Shows | Source |
+|------|------|--------------|--------|
+| Logistics cost as % of revenue (SMEs) | 15–25% | Logistics disproportionately expensive | OECD |
+| Logistics cost as % of revenue (large firms) | 5–10% | Scale advantage | OECD |
+| Access to contracted freight rates | Low (SMEs) | Reliance on spot market | McKinsey (qualitative) |
+| Pricing power | Concentrated with large shippers | Structural disadvantage | CSCMP (qualitative) |
+
+---
+
+\
+**Table 8: Technology and Infrastructure Gap**
+
+| Capability | MSMEs | Large Enterprises | Source |
+|------|------|------------------|--------|
+| Advanced Transportation Management Systems | Limited | Standard | Deloitte |
+| Route optimization and analytics | Rare | Common | McKinsey |
+| Real-time shipment visibility | Partial / manual | End-to-end | Deloitte |
+| Data reuse across shipments | Ad-hoc | Systematic | OECD |
+
+---
+
+\
+**Table 9: Broker / 3PL Planning and Contingency Gaps**
+
+| Metric | Value | What It Shows | Source |
+|------|------|--------------|--------|
+| Delayed shipments due to rebooking | Common | Reactive planning dominates | CSCMP |
+| Backup carrier availability | Limited | Single-path routing | Industry case studies |
+| Cost impact of late deliveries | Material and recurring | Lack of resilience | FreightWaves |
+
+---
+
 
 ### Business Objectives (Outcome-Oriented & Measurable)
 
@@ -252,3 +312,36 @@ A very high-level view of affected processes. No detail.
 	•	Phase 0 document reviewed and signed off
 	•	No open critical assumptions
 	•	Authorization granted to proceed to Phase 1
+
+
+## References (URLs)
+
+- Flock Freight – 2024 Underutilization Study  
+  https://www.flockfreight.com/company/press-releases/new-study-finds-58-of-truckloads-moved-over-half-empty-in-2024
+
+- Flock Freight – 2023 Underutilization Study  
+  https://www.flockfreight.com/company/press-releases/new-study-reveals-43-of-truckloads-moved-less-than-half-full-in-2023
+
+- American Transportation Research Institute (ATRI) – Operational Costs of Trucking  
+  https://truckingresearch.org/research/operational-costs-of-trucking/
+
+- Federal Highway Administration (FHWA) – Freight Facts and Figures  
+  https://www.fhwa.dot.gov/policyinformation/statistics.cfm
+
+- Transport Canada – Freight Analysis Framework  
+  https://tc.canada.ca/en/corporate-services/policies/freight-analysis-framework
+
+- OECD – Logistics and SME Cost Structures  
+  https://www.oecd.org/industry/ind/transport-logistics/
+
+- Council of Supply Chain Management Professionals (CSCMP) – State of Logistics  
+  https://cscmp.org/CSCMP/Educate/State_of_Logistics.aspx
+
+- McKinsey – Global Freight and Logistics Insights  
+  https://www.mckinsey.com/industries/travel-logistics-and-infrastructure/our-insights
+
+- Deloitte – Digital Supply Chain and Logistics Surveys  
+  https://www2.deloitte.com/global/en/pages/operations/topics/supply-chain.html
+
+- FreightWaves – Logistics Delays and Market Inefficiencies  
+  https://www.freightwaves.com/
